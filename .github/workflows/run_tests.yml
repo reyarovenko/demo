@@ -4,16 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       deployment-target:
-        description: Choose target
+        description: "Choose target"
         required: true
-        default:
+        default: "first_test"
         type: choice
         options:
           - first_test
           - second_test
           - third_test
           - all_tests
-
 
 jobs:
   test:
@@ -31,14 +30,14 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
       - name: First Test
-        if: "github.event.inputs.deployment_target == 'first_test'"
+        if: ${{ github.event.inputs.deployment-target == 'first_test' }}
         run: pytest test_this.py::test_one
       - name: Second Test
-        if: "github.event.inputs.deployment_target == 'second_test'"
+        if: ${{ github.event.inputs.deployment-target == 'second_test' }}
         run: pytest test_this.py::test_two
       - name: Third Test
-        if: "github.event.inputs.deployment_target == 'third_test'"
+        if: ${{ github.event.inputs.deployment-target == 'third_test' }}
         run: pytest test_this.py::test_three
       - name: All Tests
-        if: "github.event.inputs.deployment_target == 'all_tests'"
+        if: ${{ github.event.inputs.deployment-target == 'all_tests' }}
         run: pytest
