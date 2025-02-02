@@ -6,12 +6,11 @@ on:
       deployment-target:
         description: "Choose target"
         required: true
-        default: "first_test"
+        default: "simple_button"
         type: choice
         options:
-          - first_test
-          - second_test
-          - third_test
+          - simple_button
+          - like_a_button
           - all_tests
 
 jobs:
@@ -29,15 +28,12 @@ jobs:
         run: sudo apt-get install google-chrome-stable
       - name: Install Dependencies
         run: pip install -r requirements.txt
-      - name: First Test
-        if: ${{ github.event.inputs.deployment-target == 'first_test' }}
-        run: pytest test_this.py::test_one
-      - name: Second Test
-        if: ${{ github.event.inputs.deployment-target == 'second_test' }}
-        run: pytest test_this.py::test_two
-      - name: Third Test
-        if: ${{ github.event.inputs.deployment-target == 'third_test' }}
-        run: pytest test_this.py::test_three
+      - name: Simple Button
+        if: ${{ github.event.inputs.deployment-target == 'simple_button' }}
+        run: pytest test_simple_button.py
+      - name: Like a Button
+        if: ${{ github.event.inputs.deployment-target == 'like_a_button' }}
+        run: pytest test_like_a_button.py
       - name: All Tests
         if: ${{ github.event.inputs.deployment-target == 'all_tests' }}
         run: pytest
