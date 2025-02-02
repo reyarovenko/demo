@@ -30,10 +30,10 @@ jobs:
         run: pip install -r requirements.txt
       - name: Simple Button
         if: ${{ github.event.inputs.deployment-target == 'simple_button' }}
-        run: pytest test_simple_button.py
+        run: pytest tests/test_simple_button.py
       - name: Like a Button
         if: ${{ github.event.inputs.deployment-target == 'like_a_button' }}
-        run: pytest test_like_a_button.py
+        run: pytest tests/test_like_a_button.py
       - name: All Tests
         if: ${{ github.event.inputs.deployment-target == 'all_tests' }}
         run: pytest
