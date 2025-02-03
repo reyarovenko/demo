@@ -13,6 +13,10 @@ on:
           - like_a_button
           - all_tests
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
