@@ -1,7 +1,7 @@
 accessify==0.3.1
 aiofiles==24.1.0
-allure-pytest==2.13.2
-allure-python-commons==2.13.2
+allure-pytest==2.13.5
+allure-python-commons==2.13.5
 async-generator==1.10
 attrs==23.1.0
 beautifulsoup4==4.12.3
@@ -29,7 +29,7 @@ pluggy==1.5.0
 pyee==11.1.0
 pyrsistent==0.19.3
 PySocks==1.7.1
-pytest==8.3.2
+pytest==8.3.4
 pytest-base-url==2.1.0
 pytest-playwright==0.5.2
 python-dateutil==2.8.2
