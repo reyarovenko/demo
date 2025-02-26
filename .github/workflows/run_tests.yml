@@ -74,19 +74,28 @@ jobs:
   publish-report:
     runs-on: ubuntu-latest
     needs: generate-report
-    if: success()
     name: Report publication
     steps:
-      - name: Download all workflow run artifacts
+      - name: Download report artifact
         uses: actions/download-artifact@v4
         with:
           name: _site
-      - name: Extract report
-        run: unzip _site.zip -d _site
+          path: _site_zip
+
+      - name: Check downloaded files
+        run: ls -la _site_zip
+
+      - name: Unzip report
+        run: unzip _site_zip/_site.zip -d _site
+
+      - name: Check unzipped content
+        run: ls -la _site
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
