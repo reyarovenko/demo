@@ -85,10 +85,11 @@ jobs:
       - name: Check downloaded files
         run: ls -la _site_zip
 
+      - name: Debug artifact location
+        run: find . -name "_site.zip"
+
       - name: Find and unzip report
-          run: |
-            find . -name "_site.zip"
-            unzip $(find . -name "_site.zip") -d _site
+        run: find . -name "_site.zip" -exec unzip {} -d _site \;
 
       - name: Check unzipped content
         run: ls -la _site
