@@ -80,8 +80,8 @@ jobs:
       - name: Download report artifact
         uses: actions/download-artifact@v4
         with:
-          name: github-pages.zip  # Указываем правильное имя артефакта
-          path: _site
+          name: _site  # Совпадает с загруженным артефактом
+          path: _site_zip
 
       - name: Check downloaded report
         run: ls -la _site
