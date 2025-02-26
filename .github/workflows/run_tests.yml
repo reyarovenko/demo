@@ -88,6 +88,9 @@ jobs:
       - name: Debug artifact location
         run: find . -name "_site.zip"
 
+      - name: Debug artifact location
+        run: find . -name "_site.zip"
+
       - name: Find and unzip report
         run: find . -name "_site.zip" -exec unzip {} -d _site \;
 
