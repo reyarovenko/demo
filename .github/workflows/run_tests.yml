@@ -80,7 +80,7 @@ jobs:
       - name: Download report artifact
         uses: actions/download-artifact@v4
         with:
-          name: _site
+          name: github-pages  # Название артефакта, который был загружен
           path: _site
 
       - name: Check downloaded report
